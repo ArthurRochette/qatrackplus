@@ -3,16 +3,19 @@
 {% load reports_tags %}
 
 <style>
-.logo-hidden {
-  opacity: 0;
-}
-.logo-visible {
-  opacity: 1;
-}
-.logo {
+.container > .row .logo,
+.container-fluid > .row .logo {
   max-height: 60px;
   margin-top: 20px;
   transition: opacity 0.2s;
+}
+.container > .row .logo-hidden,
+.container-fluid > .row .logo-hidden {
+  opacity: 0;
+}
+.container > .row .logo-visible,
+.container-fluid > .row .logo-visible {
+  opacity: 1;
 }
 </style>
 
