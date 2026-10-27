@@ -60,6 +60,21 @@ services:
       - ./backups:/backups
       - media-volume:/media:ro
 
+  qcluster:
+    image: qatrackplus-django
+    pull_policy: never
+    restart: always
+    env_file: .env
+    command: python manage.py qcluster
+    depends_on:
+      django:
+        condition: service_healthy
+    volumes:
+      - media-volume:/usr/src/qatrackplus/qatrack/media
+    networks:
+      - physmed
+
+
 volumes:
   postgres-volume:
   media-volume:
